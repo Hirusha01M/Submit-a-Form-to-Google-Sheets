@@ -8,8 +8,9 @@ Features
 - Google Sheets integration for storing form data
 - Confirmation page after successful form submission
 
--  Google Apps Script
--  var sheetName = 'Sheet1'
+<h2>  Google Apps Script </h2> 
+
+var sheetName = 'Sheet1'
 var scriptProp = PropertiesService.getScriptProperties()
 
 function intialSetup () {
@@ -49,3 +50,6 @@ function doPost (e) {
     lock.releaseLock()
   }
 }
+
+
+
