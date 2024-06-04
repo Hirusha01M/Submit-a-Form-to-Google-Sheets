@@ -8,7 +8,8 @@ Features
 - Google Sheets integration for storing form data
 - Confirmation page after successful form submission
 
-<h2>  Google Apps Script </h2> 
+
+ Google Apps Script 
 
 var sheetName = 'Sheet1'
 var scriptProp = PropertiesService.getScriptProperties()
