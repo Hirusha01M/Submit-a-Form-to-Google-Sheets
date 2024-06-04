@@ -1,0 +1,50 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="styleE.css">
+</head>
+
+<body>
+    <div class="base">
+   
+        <h1>Our New Update <br></h1> <br>
+        <form name="submit-to-google-sheet">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="last_name" placeholder="Last Name" required>
+            <input type="text" name="id_number" placeholder="ID Number" required>
+            <input type="text" name="address" placeholder="Address" required>
+            <input type="tel" name="phone_number" placeholder="Phone Number" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <button type="submit"><img src="Message_(Send).png" width="25px"></button>
+        </form>
+        <span id="hiddn"></span>
+    </div>
+ 
+    <div class="footer">
+        <a href="contact.html">Contact</a>
+        <a href="feedback.html">Feedback</a>
+    </div>
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzgXP6wVlUyQzFWQGojrQhrNcmfDJuvWozfozfrsMPMRk53i7zTx9wAB66rvPDnRjc5eg/exec';
+        const form = document.forms['submit-to-google-sheet'];
+        const msg = document.getElementById('hiddn');
+        
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    msg.innerHTML = "Join successful!";
+                    setTimeout(() => {
+                        msg.innerHTML = "";
+                        window.location.href = "complete.html";
+                    }, 50);
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message));
+        });
+    </script>
+</body>
+
+</html>
